@@ -1,0 +1,5 @@
+<app-navbar></app-navbar>
+
+<app-search-image (imagesByInputEvent)='getImagesByInput($event)'></app-search-image>
+
+<app-show-image [images]='imagesByInput'></app-show-image>

@@ -1,1 +1,10 @@
-<p>show-image works!</p>
+<div class="gallery-container">
+    <div class="gallery-item" *ngFor='let image of images'>
+        <div class="gallery-title">
+                <span class="mr-2">{{image.likes}} <i class="far fa-heart"></i></span>
+                <span class="mr-3">{{image.views}} <i class="far fa-eye"></i></span>
+        </div>
+            <img [src]="image.webformatURL" (click)='saveImg()' alt="" class="gallery-img">
+    </div>
+</div>
+

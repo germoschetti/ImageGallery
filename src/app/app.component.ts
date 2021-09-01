@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'imagegallery';
+  imagesByInput: object;
+
+  constructor(){
+
+  }
+
+  getImagesByInput(data:object){
+    this.imagesByInput = data
+  }
 }

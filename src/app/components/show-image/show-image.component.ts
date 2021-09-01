@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ImageService } from 'src/app/services/image.service';
 
 @Component({
   selector: 'app-show-image',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./show-image.component.css']
 })
 export class ShowImageComponent implements OnInit {
-
-  constructor() { }
+  @Input() images: object
+  constructor(private _imageService: ImageService) { }
 
   ngOnInit(): void {
+    this._imageService.getFirstImage().subscribe(data => {
+      this.images = data['hits']
+    })
+  }
+
+  guardarImagenFichero(img) {
+
   }
 
 }

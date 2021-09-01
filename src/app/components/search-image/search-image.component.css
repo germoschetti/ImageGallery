@@ -1,0 +1,40 @@
+.carousel-item img {
+    max-height: 700px;
+    min-height: 317px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.searchInput {
+    padding: 25px 20px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+}
+
+.btn-outline-search {
+    margin: 0 0 0 20px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+
+    border: 1px solid rgb(160, 107, 245);
+    color: rgb(160, 107, 245);
+}
+
+.btn-outline-search:hover {
+    background-color: rgb(182, 138, 252);
+    border: 1px solid rgb(160, 107, 245);
+    color: #fff
+}
+
+@media (max-width: 766px) {
+    .btn-outline-search {
+        font-size: 1rem;
+        margin: 10px auto 0;
+        width: 40%;
+    }
+    .searchInput {
+        padding: 20px 15px;
+        border-radius: 20px;
+        font-size: 1rem;
+    }
+}
