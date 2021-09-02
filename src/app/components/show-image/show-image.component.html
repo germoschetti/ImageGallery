@@ -1,4 +1,4 @@
-<div class="gallery-container">
+<div class="gallery-container" id="gallery">
     <div class="gallery-item" *ngFor='let image of images; let i = index'>
         <div class="gallery-title">
             <span class="mr-2">{{image.likes}} <i class="far fa-heart"></i></span>
@@ -7,8 +7,28 @@
         <div class="gallery-download">
             <a [href]="image.pageURL" target="__blank"><i class="fas fa-download mr-3"></i></a>
         </div>
+        <img [src]="image.webformatURL" [alt]="image.tags" class="gallery-img" data-toggle="modal"
+            (load)='setDataTarget($event, i)'>
 
-        <img [src]="image.webformatURL" [alt]="image.tags" class="gallery-img">
+        <!--MODAL-->
+        <div class="modal fade bd-example-modal-lg" [id]="'imagen'+ i" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg " role="document">
+                <div class="modal-content">
+                    <div class="gallery-title">
+                        <span class="mr-2">{{image.likes}} <i class="far fa-heart"></i></span>
+                        <span class="mr-3">{{image.views}} <i class="far fa-eye"></i></span>
+                    </div>
+                    <div class="gallery-download">
+                        <a [href]="image.pageURL" target="__blank"><i class="fas fa-download mr-3"></i></a>
+                    </div>
+                    <div class="close-modal ml-3" data-dismiss="modal">
+                        <i class="far fa-times-circle"></i>
+                    </div>
+                    <img [src]="image.largeImageURL" [alt]="image.tags" class="gallery-img">
+                </div>
+            </div>
+        </div>
 
     </div>
 </div>

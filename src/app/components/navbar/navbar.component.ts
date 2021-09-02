@@ -14,14 +14,14 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {}
 
   showAndHideMenu() {
-    const menu_items = document.querySelector('.menu-items')
-    menu_items.classList.toggle('show')
+    const menu_items = document.querySelector('.menu-items');
+    menu_items.classList.toggle('show');
   }
 
 searchByCategory(category:string){
   this.imageService.getImagesByCategory(category).subscribe(data=>{
-    this.searchByCategoryEvent.emit(data['hits'])
-  })
+    this.searchByCategoryEvent.emit(data['hits']);
+  });
 }
 
 }

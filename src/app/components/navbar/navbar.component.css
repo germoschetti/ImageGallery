@@ -54,17 +54,6 @@ ul.show {
     top: 65px;
 }
 
- @media screen and (max-width:980px) {
-
-/*     .menu-items li {
-        line-height: 30px;
-    }
-    .menu-items li a {
-        font-size: 16px;
-    } */
-
-} 
-
 @media screen and (max-width: 1098px) {
     .logo {
         font-size: 30px;

@@ -7,19 +7,23 @@ import { ImageService } from 'src/app/services/image.service';
   styleUrls: ['./show-image.component.css']
 })
 export class ShowImageComponent implements OnInit {
-  @Input() images: object
+  @Input() images: object;
   public _albums: any;
 
   constructor(
     private _imageService: ImageService,
   ) {
-    this._albums = []
+    this._albums = [];
   }
 
   ngOnInit(): void {
     this._imageService.getFirstImage().subscribe(data => {
-      this.images = data['hits']
-      console.log(this.images)
+      this.images = data['hits'];
     })
+  }
+
+  setDataTarget(img, index){
+    let target = '#imagen' + index;
+    img.target.setAttribute('data-target', target);
   }
 }

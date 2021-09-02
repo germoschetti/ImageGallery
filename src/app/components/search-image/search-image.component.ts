@@ -17,18 +17,18 @@ export class SearchImageComponent implements OnInit {
 
   getImagesByInput() {
     this.wordsToSearch = '';
-    const arrString = this.inputContent.split(" ")
+    const arrString = this.inputContent.split(" ");
     if (arrString.length > 1) {
       arrString.forEach(element => {
-        this.wordsToSearch += `${element}+`
-      })
+        this.wordsToSearch += `${element}+`;
+      });
     } else {
-      this.wordsToSearch = this.inputContent
+      this.wordsToSearch = this.inputContent;
     }
 
     this.imageService.getImagesByInput(this.wordsToSearch).subscribe(data=>{
-      this.imagesByInputEvent.emit(data['hits'])
-    })
+      this.imagesByInputEvent.emit(data['hits']);
+    });
   }
 
 }
