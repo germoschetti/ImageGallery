@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class ImageService {
   url:string
   constructor(private http:HttpClient) {
-    this.url = 'https://pixabay.com/api/?key=23191597-920ea96e69c897fe65cbcbcad&image-type=photo&pretty=true&per_page=100&lang=es'
+    this.url = 'https://pixabay.com/api/?key=23191597-920ea96e69c897fe65cbcbcad&image-type=photo&pretty=true&per_page=100&lang=es&safesearch=true'
   }
 
   getFirstImage(): Observable<object>{
@@ -17,5 +17,9 @@ export class ImageService {
 
   getImagesByInput(wordsToSearch:string):Observable<object>{
     return this.http.get(this.url + '&q=' + wordsToSearch )
+  }
+
+  getImagesByCategory(category:string):Observable<object>{
+    return this.http.get(this.url + '&category=' + category )
   }
 }

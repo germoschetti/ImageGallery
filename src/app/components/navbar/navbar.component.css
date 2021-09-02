@@ -9,10 +9,12 @@
 }
 
 .logo {
-    color: #191b26;
-    font-size: 34px;
+    color: #515151;
+    font-size: 30px;
     padding: 0 80px;
     font-weight: bold;
+    cursor: pointer;
+    margin: auto 0;
 }
 
 .menu-items {
@@ -32,7 +34,7 @@
     font-size: 14px;
     display: block;
     text-transform: uppercase;
-    color: #191b26;
+    color: #515151;
 }
 
 .menu-items li:hover, li.active {
@@ -52,7 +54,7 @@ ul.show {
     top: 65px;
 }
 
- @media screen and (max-width:952px) {
+ @media screen and (max-width:980px) {
 
 /*     .menu-items li {
         line-height: 30px;
@@ -63,7 +65,7 @@ ul.show {
 
 } 
 
-@media screen and (max-width: 858px) {
+@media screen and (max-width: 1098px) {
     .logo {
         font-size: 30px;
         padding: 0 35px;
@@ -86,7 +88,7 @@ ul.show {
         justify-content: center;
     }
     .menu-items li {
-        margin: 30px 0;
+        margin: 20px 0;
         line-height: 30px;
 
     }

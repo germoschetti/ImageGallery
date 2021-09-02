@@ -8,16 +8,18 @@ import { ImageService } from 'src/app/services/image.service';
 })
 export class ShowImageComponent implements OnInit {
   @Input() images: object
-  constructor(private _imageService: ImageService) { }
+  public _albums: any;
+
+  constructor(
+    private _imageService: ImageService,
+  ) {
+    this._albums = []
+  }
 
   ngOnInit(): void {
     this._imageService.getFirstImage().subscribe(data => {
       this.images = data['hits']
+      console.log(this.images)
     })
   }
-
-  guardarImagenFichero(img) {
-
-  }
-
 }

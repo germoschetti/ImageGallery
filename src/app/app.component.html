@@ -1,5 +1,5 @@
-<app-navbar></app-navbar>
+<app-navbar (searchByCategoryEvent)='searchByCategory($event)'></app-navbar>
 
 <app-search-image (imagesByInputEvent)='getImagesByInput($event)'></app-search-image>
 
-<app-show-image [images]='imagesByInput'></app-show-image>
+<app-show-image [images]='imagesByInput' [images]='imagesByCategory'></app-show-image>

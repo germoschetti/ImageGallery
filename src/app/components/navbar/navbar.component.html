@@ -1,11 +1,13 @@
 <nav class="menu fixed-top">
-    <label for="" class="logo">MiLogo</label>
+    <label for="" class="logo" (click)='searchByCategory("")'><img src="../../../assets/image/logo.gif" height="45px" alt="logo de la web"> <span class="ml-2 pt-3" style="font-family: 'Courier New', Courier, monospace">ImgBank</span></label>
     <ul class="menu-items">
-        <li (click)='showAndHideMenu()'><a href="#">Paisajes</a></li>
-        <li (click)='showAndHideMenu()'><a href="#">Fondos</a></li>
-        <li (click)='showAndHideMenu()'><a href="#">Flores</a></li>
-        <li (click)='showAndHideMenu()'><a href="#">Autos</a></li>
+        <li (click)='showAndHideMenu()' (click)='searchByCategory("buildings")'><a href="#">Arquitectura</a></li>
+        <li (click)='showAndHideMenu()' (click)='searchByCategory("sports")'><a href="#">Deportes</a></li>
+        <li (click)='showAndHideMenu()' (click)='searchByCategory("backgrounds")'><a href="#">Fondos</a></li>
+        <li (click)='showAndHideMenu()' (click)='searchByCategory("music")'><a href="#">Musica</a></li>
+        <li (click)='showAndHideMenu()' (click)='searchByCategory("nature")'><a href="#">Naturaleza</a></li>
+        <li (click)='showAndHideMenu()' (click)='searchByCategory("computer")'><a href="#">Tecnología</a></li>
+        <li (click)='showAndHideMenu()' (click)='searchByCategory("travel")'><a href="#">Viaje</a></li>
     </ul>
     <span class="btn-menu" (click)='showAndHideMenu()'><i class="fa fa-bars"></i></span>
 </nav>
-

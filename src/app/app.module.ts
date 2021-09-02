@@ -26,7 +26,8 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
