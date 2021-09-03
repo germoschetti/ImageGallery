@@ -9,7 +9,7 @@ import { ImageService } from 'src/app/services/image.service';
 export class NavbarComponent implements OnInit {
   @Output() searchByCategoryEvent = new EventEmitter<object>();
 
-  constructor( private imageService: ImageService) { }
+  constructor( private _imageService: ImageService) { }
 
   ngOnInit(): void {}
 
@@ -19,9 +19,17 @@ export class NavbarComponent implements OnInit {
   }
 
 searchByCategory(category:string){
-  this.imageService.getImagesByCategory(category).subscribe(data=>{
-    this.searchByCategoryEvent.emit(data['hits']);
-  });
+  this._imageService.setSpinner(true);
+  setTimeout(()=>{
+    this._imageService.getImagesByCategory(category).subscribe(data=>{
+      this.searchByCategoryEvent.emit(data['hits']);
+    },
+    err=>{
+      console.error(err);
+    });
+    this._imageService.setSpinner(false);
+  }, 2500);
+
 }
 
 }

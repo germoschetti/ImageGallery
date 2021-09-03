@@ -1,5 +1,6 @@
 <app-navbar (searchByCategoryEvent)='searchByCategory($event)'></app-navbar>
-
 <app-search-image (imagesByInputEvent)='getImagesByInput($event)'></app-search-image>
-
+<app-error></app-error>
 <app-show-image [images]='imagesByInput' [images]='imagesByCategory'></app-show-image>
+
+<app-spinner class="spinner-main"></app-spinner>

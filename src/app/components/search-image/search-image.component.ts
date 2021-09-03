@@ -7,15 +7,33 @@ import { ImageService } from 'src/app/services/image.service';
   styleUrls: ['./search-image.component.css']
 })
 export class SearchImageComponent implements OnInit {
-  @Output() imagesByInputEvent = new EventEmitter<any>()
-  inputContent: string
-  wordsToSearch: string
-  constructor(private imageService: ImageService) { }
+  @Output() imagesByInputEvent = new EventEmitter<any>();
+  inputContent: string;
+  wordsToSearch: string;
+  constructor(
+    private _imageService: ImageService,
+  ) { }
 
   ngOnInit(): void {
   }
 
   getImagesByInput() {
+    // input verification
+    if (this.inputContent == undefined || this.inputContent.trim() == '') {
+      this._imageService.setError('Oops... You must enter a search term')
+    } else {
+      // url adaptation for api
+      this.urlAdaptation();
+      // making request and showing spinner
+      this._imageService.setSpinner(true);
+      setTimeout(()=>{
+        this.makeRequestToApi();
+        this._imageService.setSpinner(false);
+      }, 2500);
+    }
+  }
+
+  urlAdaptation() {
     this.wordsToSearch = '';
     const arrString = this.inputContent.split(" ");
     if (arrString.length > 1) {
@@ -25,10 +43,20 @@ export class SearchImageComponent implements OnInit {
     } else {
       this.wordsToSearch = this.inputContent;
     }
+  }
 
-    this.imageService.getImagesByInput(this.wordsToSearch).subscribe(data=>{
-      this.imagesByInputEvent.emit(data['hits']);
+  makeRequestToApi(){
+    this._imageService.getImagesByInput(this.wordsToSearch).subscribe(data => {
+      if (data['hits'].length == 0) {
+        this._imageService.setError('Oops... We have not found results for your search');
+      } else {
+        this.imagesByInputEvent.emit(data['hits']);
+      }
+    },
+    err=>{
+      console.error(err);
     });
   }
+
 
 }

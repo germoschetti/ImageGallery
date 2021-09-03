@@ -14,7 +14,7 @@
         <div class="modal fade bd-example-modal-lg" [id]="'imagen'+ i" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg " role="document">
-                <div class="modal-content">
+                <div class="modal-content" style="max-height: 100vh;">
                     <div class="gallery-title">
                         <span class="mr-2">{{image.likes}} <i class="far fa-heart"></i></span>
                         <span class="mr-3">{{image.views}} <i class="far fa-eye"></i></span>
@@ -25,7 +25,7 @@
                     <div class="close-modal ml-3" data-dismiss="modal">
                         <i class="far fa-times-circle"></i>
                     </div>
-                    <img [src]="image.largeImageURL" [alt]="image.tags" class="gallery-img">
+                    <img [src]="image.largeImageURL" [alt]="image.tags" style="max-height: 100vh;" class="gallery-img">
                 </div>
             </div>
         </div>

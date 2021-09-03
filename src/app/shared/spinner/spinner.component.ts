@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ImageService } from 'src/app/services/image.service';
 
 @Component({
   selector: 'app-spinner',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./spinner.component.css']
 })
 export class SpinnerComponent implements OnInit {
-
-  constructor() { }
+  visibility:boolean;
+  subscription: Subscription
+  constructor(private _imageService:ImageService) { 
+    this.subscription = this._imageService.getSpinner().subscribe(data=>{
+      this.visibility = data;
+    })
+  }
 
   ngOnInit(): void {
   }
+
+  ngOnDestroy():void{
+    this.subscription.unsubscribe()
+  }
+
 
 }
