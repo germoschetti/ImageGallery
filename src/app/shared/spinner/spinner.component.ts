@@ -20,7 +20,7 @@ export class SpinnerComponent implements OnInit {
   }
 
   ngOnDestroy():void{
-    this.subscription.unsubscribe()
+    this.subscription.unsubscribe();
   }
 
 

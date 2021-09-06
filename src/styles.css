@@ -12,14 +12,3 @@ html{
     font-family: 'Open Sans', sans-serif;
  }
 
- .spinner-main{
-     position: absolute;
-     top: 100%;
-     right: 50%;
- }
-
- @media (max-width: 790px){
-    .spinner-main{
-        right: 45%;
-    }
- }

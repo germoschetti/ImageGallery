@@ -10,17 +10,18 @@ export class SearchImageComponent implements OnInit {
   @Output() imagesByInputEvent = new EventEmitter<any>();
   inputContent: string;
   wordsToSearch: string;
+  url:string;
+
   constructor(
     private _imageService: ImageService,
   ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   getImagesByInput() {
     // input verification
     if (this.inputContent == undefined || this.inputContent.trim() == '') {
-      this._imageService.setError('Oops... You must enter a search term')
+      this._imageService.setError('Oops... You must enter a search term');
     } else {
       // url adaptation for api
       this.urlAdaptation();
@@ -46,17 +47,17 @@ export class SearchImageComponent implements OnInit {
   }
 
   makeRequestToApi(){
-    this._imageService.getImagesByInput(this.wordsToSearch).subscribe(data => {
+    this._imageService.getImagesByInput(this.wordsToSearch, 1 ).subscribe(data => {
       if (data['hits'].length == 0) {
         this._imageService.setError('Oops... We have not found results for your search');
       } else {
         this.imagesByInputEvent.emit(data['hits']);
+        this._imageService.setTotalPages(data['totalHits']);
       }
     },
     err=>{
       console.error(err);
     });
   }
-
 
 }

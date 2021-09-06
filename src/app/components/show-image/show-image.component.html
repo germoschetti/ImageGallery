@@ -1,4 +1,14 @@
-<div class="gallery-container" id="gallery">
+<div class="container ">
+    <div class="row justify-content-center my-5">
+        <button type="button" class="btn btn-outline-secondary mr-3 col-3" *ngIf='actualPage == 1;' disabled>Prev</button>
+        <button type="button" class="btn btn-outline-secondary mr-3 col-3" *ngIf='actualPage != 1;' (click)='previousPage()'>Prev</button>
+        <button type="button" class="btn btn-outline-success ml-3 col-3" *ngIf='actualPage == pages' disabled>Next</button>
+        <button type="button" class="btn btn-outline-success ml-3 col-3" *ngIf='actualPage != pages' (click)="nextPage()">Next</button>
+    </div>
+</div>
+
+
+<div class="gallery-container">
     <div class="gallery-item" *ngFor='let image of images; let i = index'>
         <div class="gallery-title">
             <span class="mr-2">{{image.likes}} <i class="far fa-heart"></i></span>
@@ -32,3 +42,5 @@
 
     </div>
 </div>
+
+<!--Pagination-->
